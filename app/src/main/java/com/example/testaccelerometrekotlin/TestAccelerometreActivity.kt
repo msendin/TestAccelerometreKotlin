@@ -72,7 +72,11 @@ class TestAccelerometreActivity : Activity(), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
-        // Do something here if sensor accuracy changes.
+        if (sensor.type == Sensor.TYPE_LIGHT) Toast.makeText(
+            this,
+            getString(R.string.changAcc, accuracy),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onPause() {
